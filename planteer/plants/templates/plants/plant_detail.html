@@ -19,7 +19,6 @@
                     <a href="{% url 'plants:plant_delete' plant_id=plant.id %}" class="btn-delete">Delete</a>
                 </div>
             </div>
-            {# نهاية قسم الإجراءات #}
             
             <div class="plant-detail-category">{{ plant.category|title }}</div>
             
@@ -35,7 +34,6 @@
                 </p>
                 {% endif %}
 
-                {# عرض حقل Used for #}
                 {% if plant.used_for %}
                 <p>
                     <span class="plant-detail-meta-label">Used for:</span>
@@ -48,7 +46,42 @@
             </div>
         </div>
     </div>
+    
+    
+    <div class="comments-section">
+        <h3>Comments ({{ comments|length }})</h3>
+        
+        <div class="comment-form-container">
+            <h4>Add your comment</h4>
+            <form method="post" class="comment-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    {{ comment_form.name }}
+                </div>
+                <div class="form-group full-width">
+                    <label class="form-label">Comment</label>
+                    {{ comment_form.content }}
+                </div>
+                <button type="submit" class="btn">Submit Comment</button>
+            </form>
+        </div>
 
+        {% for comment in comments %}
+        <div class="comment-card">
+            <div class="comment-header">
+                <div class="comment-name">{{ comment.name }}</div>
+                <div class="comment-date">
+                    {{ comment.created_at|date:"F j, Y, P" }}
+                </div>
+            </div>
+            <p class="comment-content">{{ comment.content }}</p>
+        </div>
+        {% empty %}
+        <p class="no-comments">No comments yet. Be the first to comment!</p>
+        {% endfor %}
+    </div>
+    
     <div class="related-section">
         <h3>Related Plants</h3>
         <div class="plants-grid">

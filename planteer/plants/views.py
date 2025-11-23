@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
-from .models import Plant
-from .forms import PlantForm
+from .models import Plant, Comment
+from .forms import PlantForm, CommentForm
 
 # Create your views here.
 
@@ -22,10 +22,23 @@ def plant_list(request):
         'selected_is_edible': is_edible,
     }
     return render(request, 'plants/plant_list.html', context)
+    pass
 
 
 def plant_detail(request, plant_id):
     plant = get_object_or_404(Plant, id=plant_id)
+    
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.plant = plant
+            new_comment.save()
+            return redirect('plants:plant_detail', plant_id=plant.id)
+    else:
+        comment_form = CommentForm()
+
+    comments = plant.comments.all()
 
     related_plants = Plant.objects.filter(
         category=plant.category
@@ -34,6 +47,8 @@ def plant_detail(request, plant_id):
     return render(request, 'plants/plant_detail.html', {
         'plant': plant,
         'related_plants': related_plants,
+        'comments': comments,
+        'comment_form': comment_form,
     })
 
 

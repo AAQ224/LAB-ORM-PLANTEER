@@ -60,16 +60,24 @@
 
             <div class="footer-columns">
                 <div class="footer-col">
-                    <div class="footer-topic">Topic</div>
-                    <a>Page</a><a>Page</a><a>Page</a>
+                    <div class="footer-topic">Discover</div>
+                    <a href="{% url 'plants:plant_list' %}">All Plants</a>
+                    <a href="{% url 'plants:plant_search' %}">Search</a>
+                    <a href="{% url 'plants:plant_create' %}">Add New Plant</a>
                 </div>
+
                 <div class="footer-col">
-                    <div class="footer-topic">Topic</div>
-                    <a>Page</a><a>Page</a><a>Page</a>
+                    <div class="footer-topic">Categories</div>
+                    <a href="{% url 'plants:plant_list' %}?category=indoor">Indoor</a>
+                    <a href="{% url 'plants:plant_list' %}?category=outdoor">Outdoor</a>
+                    <a href="{% url 'plants:plant_list' %}?category=succulent">Succulents</a>
                 </div>
+
                 <div class="footer-col">
-                    <div class="footer-topic">Topic</div>
-                    <a>Page</a><a>Page</a><a>Page</a>
+                    <div class="footer-topic">About</div>
+                    <a href="{% url 'main:home' %}">Home</a>
+                    <a href="{% url 'main:contact' %}">Contact Us</a>
+                    <a href="{% url 'main:contact_messages' %}">Admin Messages</a> 
                 </div>
             </div>
 

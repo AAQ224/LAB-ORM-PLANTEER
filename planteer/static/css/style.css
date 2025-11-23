@@ -13,7 +13,7 @@ html, body {
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-color: #ffffff;
+    background-color: #f9fafb;
     color: #111827;
 }
 
@@ -35,12 +35,64 @@ img {
 
 .site-main {
     flex: 1 0 auto;
+    padding-top: 30px;
+    padding-bottom: 60px;
 }
 
 .container {
     width: 100%;
     margin: 0 auto;
     padding: 0 32px;
+    max-width: 1900px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #10b981;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    padding: 7px 15px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background-color: transparent;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn-outline:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-1px);
+}
+
+.btn-delete {
+    background-color: #ef4444;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
 }
 
 /* ========== Header / Navbar ========== */
@@ -57,257 +109,298 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 70px;
 }
 
 .logo a {
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    font-size: 14px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #10b981;
 }
 
 .main-nav a {
-    padding: 6px 0;
-}
-
-.main-nav a:not(.btn-primary):hover {
-    color: #111111;
-    text-decoration: underline;
-}
-
-.btn-primary {
-    padding: 30px 20px;
-    border-radius: 10px;
-    background-color: #000;
-    color: #fff !important;
-    font-size: 13px;
+    margin-left: 25px;
+    font-size: 15px;
     font-weight: 500;
+    color: #4b5563;
+    transition: color 0.2s;
 }
 
-.btn-primary:hover {
-    opacity: 0.9;
+.main-nav a:hover {
+    color: #111827;
 }
 
-.btn-outline {
+.main-nav .btn-primary {
+    margin-left: 30px;
+    background-color: #111827;
+    color: #ffffff;
     padding: 8px 18px;
     border-radius: 999px;
-    border: 1px solid #111111;
-    background: transparent;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s ease; /* تحسين زر الـOutline */
 }
 
-/* ========== Hero Section (Home) ========== */
+.main-nav .btn-primary:hover {
+    background-color: #374151;
+}
+
+/* ========== Home Page (Hero) ========== */
 .hero {
-    margin-top: 40px;
-    padding: 0 32px;
-    border-radius: 24px;
-    background-color: #f6f6ff;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
+    background-color: #e0f2f1;
+    padding: 80px 0;
+    border-radius: 12px;
+    margin-bottom: 40px;
 }
 
 .hero-with-bg {
-    background-image: url("https://images.pexels.com/photos/1470171/pexels-photo-1470171.jpeg");
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('../images/hero-bg.jpg');
     background-size: cover;
+    background-position: center;
+    color: #10b981;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
-    width: 100%;
     max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(2px);
-    padding: 30px;
-    border-radius: 16px;
     text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .hero-text-title {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 10px;
 }
 
 .hero-text-subtitle {
     font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 24px;
-}
-
-.hero-search-box {
-    margin-top: 12px;
-    max-width: 420px;
-    width: 100%;
+    font-weight: 400;
+    margin-bottom: 30px;
 }
 
 .hero-search-form {
     display: flex;
-    gap: 12px;
-    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .hero-search-form input[type="text"] {
-    flex: 1;
-    padding: 10px 12px;
-    border-radius: 999px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: none;
     outline: none;
+    font-size: 16px;
+    color: #374151;
 }
 
 .hero-search-form button {
-    padding: 10px 18px;
-    border-radius: 999px;
-    border: none;
-    background-color: #111111;
+    background-color: #10b981;
     color: #ffffff;
-    font-size: 13px;
+    padding: 10px 25px;
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s;
 }
 
 .hero-search-form button:hover {
-    opacity: 0.9;
+    background-color: #059669;
 }
 
-.hero-media {
-    position: relative;
-    min-height: 220px;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: #e5e7eb;
-    display: none;
-}
-
-.hero-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* ========== Section Header (Plants / Search) ========== */
+/* ========== Plants List / Home Sections ========== */
 
 .section-header {
-    margin-top: 40px;
-    margin-bottom: 20px;
     display: flex;
-    align-items: baseline;
     justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.section-header-left h2 {
-    font-size: 22px;
-    font-weight: 600;
-    margin: 0 0 4px;
-}
-
-.section-header-left p {
+.section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
     margin: 0;
+}
+
+.section-header p {
+    font-size: 14px;
     color: #6b7280;
+    margin: 5px 0 0 0;
+}
+
+.section-header a {
     font-size: 14px;
+    font-weight: 500;
+    color: #10b981;
 }
-
-.section-header-right a {
-    font-size: 13px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: #111111;
-}
-
-.section-header-right a::after {
-    content: "→";
-    font-size: 14px;
-}
-
-/* ========== Plant Cards Grid ========== */
 
 .plants-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .plant-card {
-    background-color: #f9fafb;
-    border-radius: 14px;
+    background-color: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
     display: flex;
     flex-direction: column;
-    /* إضافة حركات التحول */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid transparent;
 }
 
 .plant-card:hover {
-    /* رفع البطاقة قليلاً عند المرور عليها */
-    transform: translateY(-5px);
-    /* إضافة ظل خفيف */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-color: #d1d5db; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
 }
 
 .plant-card-image {
-    width: 100%;
-    padding-top: 65%;
-    position: relative;
-    background-color: #e5e7eb;
+    height: 180px;
+    overflow: hidden;
 }
 
 .plant-card-image img {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.plant-card:hover .plant-card-image img {
+    transform: scale(1.05);
 }
 
 .plant-card-body {
-    padding: 14px 14px 16px;
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .plant-card-name {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #1f2937;
 }
 
 .plant-card-brief {
-    font-size: 12px;
+    font-size: 14px;
     color: #6b7280;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 }
 
 .plant-card-category {
     font-size: 12px;
-    font-weight: 500;
-}
-
-/* ========== All Plants page ========== */
-
-.page-title {
-    font-size: 24px;
     font-weight: 600;
-    margin-top: 32px;
-    margin-bottom: 24px;
+    color: #059669;
+    background-color: #d1fae5;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
 }
+
+
+/* ========== Plant List Filters ========== */
+
+.plant-list-filters {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.filter-form {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.filter-form .form-group {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.filter-form .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.filter-form select {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    height: 40px;
+    background-color: #ffffff;
+}
+
+.filter-form button {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 40px;
+    transition: background-color 0.2s;
+}
+
+.filter-form button:hover {
+    background-color: #374151;
+}
+
+/* ========== Search Page ========== */
+
+.search-box-page {
+    margin-bottom: 30px;
+}
+
+.search-box-page .search-form {
+    display: flex;
+    max-width: 500px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-box-page .search-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-box-page .search-form button {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.search-box-page .search-form button:hover {
+    background-color: #374151;
+}
+
 
 /* ========== Detail Page ========== */
 
@@ -317,15 +410,19 @@ img {
 
 .plant-detail-main {
     display: grid;
-    grid-template-columns: minmax(0, 2.3fr) minmax(0, 2.2fr);
+    grid-template-columns: 350px 1fr;
     gap: 40px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
 }
 
 .plant-detail-image {
-    border-radius: 16px;
+    height: 300px;
+    border-radius: 10px;
     overflow: hidden;
-    background-color: #e5e7eb;
-    max-height: 450px;
 }
 
 .plant-detail-image img {
@@ -334,326 +431,55 @@ img {
     object-fit: cover;
 }
 
-/* تنسيق قسم الأزرار والعنوان */
 .plant-actions-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    margin-bottom: 10px;
 }
 
-.plant-actions {
-    display: flex;
-    gap: 10px;
+.plant-actions a {
+    margin-left: 10px;
 }
 
 .plant-detail-info-title {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.plant-actions .btn-delete {
-    padding: 8px 18px;
-    border-radius: 999px;
-    border: 1px solid #dc2626; /* لون أحمر للحذف */
-    background: transparent;
-    color: #dc2626;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.plant-actions .btn-delete:hover {
-    background-color: #fee2e2;
-    transform: translateY(-1px);
-}
-
-.plant-actions .btn-outline:hover {
-    background-color: #f3f4f6;
-    transform: translateY(-1px);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .plant-detail-category {
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #059669;
+    background-color: #d1fae5;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
 }
 
-.plant-detail-meta {
-    font-size: 14px;
-    line-height: 1.7;
-    /* تحسين التباعد بين فقرات البيانات الوصفية */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 0;
-    border-top: 1px dashed #e5e7eb; 
-    margin-top: 15px;
+.plant-detail-meta p {
+    font-size: 16px;
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 .plant-detail-meta-label {
     font-weight: 600;
-    color: #374151;
-    display: inline-block;
-    min-width: 100px;
+    color: #1f2937;
+    margin-right: 5px;
 }
 
-/* Related plants section */
-
 .related-section {
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .related-section h3 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 16px;
-}
-
-/* ========== Search Page ========== */
-
-.search-box-page {
-    margin-top: 32px;
-    margin-bottom: 24px;
-}
-
-.search-box-page .search-form {
-    display: flex;
-    gap: 12px;
-}
-
-.search-form input[type="text"] {
-    flex: 1;
-    padding: 10px 12px;
-    border-radius: 999px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-    outline: none;
-}
-
-.search-form button {
-    padding: 10px 18px;
-    border-radius: 999px;
-    border: none;
-    background-color: #111111;
-    color: #ffffff;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-/* ========== Contact Page ========== */
-
-.contact-page {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); 
-    gap: 40px;
-}
-
-.contact-heading {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: #1f2937;
-}
-
-.contact-subheading {
-    font-size: 14px;
-    color: #6b7280;
-    margin-bottom: 20px;
-}
-
-.contact-form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px 20px;
-}
-
-.contact-form-grid .full-width {
-    grid-column: 1 / -1;
-}
-
-.form-label {
-    font-size: 13px;
-    margin-bottom: 4px;
-    display: block;
-}
-
-.form-input,
-.form-textarea {
-    width: 100%;
-    padding: 9px 11px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-    outline: none;
-}
-
-.form-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.contact-submit {
-    margin-top: 20px;
-}
-
-.contact-submit button {
-    width: 120px;
-    padding: 10px 0;
-    border-radius: 999px;
-    border: none;
-    background-color: #111827; /* لون متناسق مع زر الحفظ */
-    color: #ffffff;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.contact-submit button:hover {
-    background-color: #374151;
-}
-
-.contact-image {
-    border-radius: 18px;
-    overflow: hidden;
-    background-color: #e5e7eb;
-    height: 100%; 
-}
-
-.contact-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* ========== Messages Page ========== */
-
-.messages-page {
-    margin-top: 40px;
-}
-
-.messages-title {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 24px;
-}
-
-.messages-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.message-card {
-    padding: 16px 18px;
-    border-radius: 18px;
-    border: 1px solid #e5e7eb;
-    background-color: #ffffff;
-}
-
-.message-icon {
     font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.message-name {
-    font-size: 14px;
     font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.message-email {
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 8px;
-}
-
-.message-body {
-    font-size: 13px;
-    color: #4b5563;
-}
-
-/* ========== Footer ========== */
-
-.site-footer {
-    border-top: 1px solid #e5e7eb;
-    padding: 28px 0 36px;
-    margin-top: 40px;
-    flex-shrink: 0;
-}
-
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    font-size: 12px;
-    color: #6b7280;
-}
-
-.footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-sitename {
-    font-size: 13px;
-}
-
-.footer-social {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-icon {
-    width: 18px;
-    height: 18px;
-    opacity: 0.8;
-    transition: 0.2s;
-}
-
-.social-icon:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.footer-social i {
-    font-size: 28px;
-    color: #4b5563;
-    margin-right: 12px;
-    transition: 0.2s;
-}
-
-.footer-social a:hover i {
-    color: #000;
-    transform: scale(1.15);
-}
-
-
-.footer-columns {
-    display: flex;
-    gap: 32px;
-}
-
-.footer-col {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.footer-topic {
-    font-weight: 500;
-    color: #111827;
-    margin-bottom: 6px;
+    margin-bottom: 25px;
 }
 
 /* ========== Plant Form Page ========== */
@@ -661,6 +487,8 @@ img {
 .plant-form-page {
     margin-top: 40px;
     max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .plant-form {
@@ -668,7 +496,7 @@ img {
     border-radius: 18px;
     border: 1px solid #e5e7eb;
     background-color: #ffffff;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .form-group {
@@ -679,86 +507,353 @@ img {
     font-size: 13px;
     margin-bottom: 4px;
     display: block;
+    font-weight: 500;
 }
 
 .plant-form input[type="text"],
 .plant-form select,
-.plant-form textarea,
-.plant-form input[type="file"] {
-    border: 1px dashed #d1d5db;
-    background-color: #f9fafb;
+.plant-form input[type="file"],
+.contact-page input[type="text"],
+.contact-page input[type="email"],
+.contact-page select,
+.comment-form input[type="text"] {
+    width: 100%;
+    padding: 9px 11px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+    height: 40px;
+    background-color: #ffffff;
 }
 
-.plant-form textarea {
+/* ========== (Textarea) ========== */
+.plant-form textarea,
+.contact-page textarea,
+.comment-form textarea {
+    width: 100%;
+    padding: 9px 11px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
     min-height: 120px;
     resize: vertical;
+    background-color: #ffffff;
 }
 
-.checkbox-row {
+/* ========== (Checkbox) ========== */
+.form-group.checkbox-row {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .plant-form-actions {
-    margin-top: 20px;
     display: flex;
     gap: 10px;
-    align-items: center; 
+    margin-top: 25px;
 }
 
-.form-input {
-    width: 100%;
-    padding: 9px 11px;
+/* ========== Contact Page ========== */
+
+.contact-page {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.contact-heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-subheading {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.contact-image {
+    height: 100%;
     border-radius: 10px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-    outline: none;
+    overflow: hidden;
 }
 
-.plant-form-actions .btn {
-    padding: 10px 20px;
-    border-radius: 999px;
-    background-color: #111827;
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.contact-form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.contact-submit button {
+    background-color: #1f2937;
     color: #ffffff;
-    border: 1px solid #111827;
-    font-size: 14px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
     transition: background-color 0.2s;
+    margin-top: 20px;
 }
 
-.plant-form-actions .btn:hover {
+.contact-submit button:hover {
     background-color: #374151;
 }
 
-.plant-form-actions .btn-outline:hover {
-    background-color: #f3f4f6;
-    transform: none;
+/* ========== Contact Messages Page ========== */
+
+.messages-page {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.form-textarea {
-    width: 100%;
-    padding: 9px 11px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
+.messages-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.messages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.message-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #10b981;
+}
+
+.message-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #059669;
+}
+
+.message-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.message-email {
     font-size: 14px;
-    outline: none;
-    min-height: 120px;
-    resize: vertical;
+    color: #6b7280;
+    margin-bottom: 15px;
 }
 
-/* ========== Media Queries (للاستجابة) ========== */
+.message-body {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* ========== Footer ========== */
+
+.site-footer {
+    margin-top: 60px;
+    background-color: #1f2937;
+    color: #d1d5db;
+    padding: 40px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-sitename {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.footer-social a {
+    margin-right: 15px;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.footer-social a:hover {
+    color: #10b981;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-col a {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #9ca3af;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+}
+
+.footer-topic {
+    font-weight: 500;
+    color: #10b981;
+    margin-bottom: 6px;
+}
+
+/* ========== Comment Section ========== */
+.comments-section {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.comments-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.comment-form-container {
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.comment-form-container h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.comment-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+}
+
+.comment-form .full-width {
+    grid-column: 1 / -1;
+}
+
+.comment-form .btn {
+    grid-column: 1 / -1;
+    width: 180px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    background-color: #1f2937;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.comment-form .btn:hover {
+    background-color: #374151;
+}
+
+.comment-card {
+    padding: 15px 0;
+    border-bottom: 1px dashed #e5e7eb;
+    margin-bottom: 15px;
+}
+
+.comment-card:last-child {
+    border-bottom: none;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-name {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.comment-content {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.no-comments {
+    padding: 10px;
+    color: #6b7280;
+    font-style: italic;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+
+
+@media (max-width: 1024px) {
+    .contact-page {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+    .contact-image {
+        height: 300px;
+    }
+}
 
 @media (max-width: 900px) {
     .hero {
-        padding: 28px 20px;
+        padding: 50px 0;
     }
-
+    .hero-text-title {
+        font-size: 40px;
+    }
     .plant-detail-main {
         grid-template-columns: 1fr;
-    }
-    
-    .contact-page {
-        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 
@@ -774,33 +869,49 @@ img {
         flex-direction: column;
         align-items: flex-start;
     }
+    .footer-columns {
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 600px) {
-    .plants-grid {
-        grid-template-columns: 1fr;
+    .container {
+        padding: 0 20px;
     }
-    
+    .header-inner {
+        height: 60px;
+    }
+    .main-nav {
+        display: none;
+    }
     .hero-text-title {
         font-size: 32px;
     }
-    
-    /* جعل شريط البحث عمودياً في الجوال */
-    .hero-search-form {
-        flex-direction: column; 
-        gap: 8px;
+    .plant-detail-info-title {
+        font-size: 28px;
     }
-
-    .hero-search-form button {
-        width: 100%; 
+    .plants-grid {
+        gap: 20px;
     }
-}
-
-.search-form select {
-    padding: 10px 12px;
-    border-radius: 999px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-    outline: none;
-    background-color: #fff;
+    .filter-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .filter-form button {
+        width: 100%;
+    }
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .comment-form {
+        grid-template-columns: 1fr;
+    }
+    .plant-actions-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .plant-actions {
+        margin-top: 10px;
+    }
 }
